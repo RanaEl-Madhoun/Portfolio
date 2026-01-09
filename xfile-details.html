@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-en="xFile App - Project Details" data-ar="تطبيق xFile - تفاصيل المشروع">xFile App - Project Details</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .details-page {
+            padding-top: 80px;
+            min-height: 100vh;
+        }
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            color: var(--baroque-gold);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            color: var(--baroque-gold-light);
+            transform: translateX(-5px);
+        }
+        
+        .details-hero {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        
+        .details-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--baroque-gold) 0%, var(--baroque-red) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .details-hero p {
+            font-size: 1.125rem;
+            color: var(--baroque-ivory);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .feature-section {
+            margin: 2.5rem 0;
+            padding: 2.5rem;
+            background-color: var(--baroque-brown);
+            border-radius: 16px;
+            border: 2px solid var(--baroque-gold);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .feature-section h4 {
+            font-size: 1.625rem;
+            color: var(--baroque-gold);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            text-align: center;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(255, 105, 180, 0.2);
+        }
+        
+        .feature-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 2rem 0;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .feature-img {
+            width: auto;
+            height: auto;
+            max-width: 320px;
+            max-height: 500px;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+            background-color: rgba(26, 26, 26, 0.5);
+            padding: 0.5rem;
+        }
+        
+        .feature-img:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 30px rgba(255, 105, 180, 0.4);
+        }
+        
+        .feature-gallery:has(img:only-child) {
+            justify-content: center;
+        }
+        
+        .feature-gallery:has(img:only-child) .feature-img {
+            max-width: 400px;
+            max-height: 600px;
+        }
+        
+        .feature-gallery:has(img:nth-child(2)) .feature-img {
+            max-width: 300px;
+            max-height: 480px;
+        }
+        
+        .feature-section p {
+            color: var(--baroque-ivory);
+            line-height: 1.9;
+            font-size: 1.0625rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 1.5rem auto 0;
+        }
+        
+        .tech-section {
+            margin-top: 2.5rem;
+            padding: 1.5rem;
+            background-color: var(--baroque-brown);
+            border-radius: 12px;
+            border: 2px solid var(--baroque-gold);
+        }
+        
+        .tech-section h3 {
+            color: var(--baroque-gold);
+            margin-bottom: 1rem;
+        }
+        
+        .tech-section ul {
+            list-style: none;
+            padding-right: 1.5rem;
+        }
+        
+        .tech-section li {
+            padding: 0.5rem 0;
+            position: relative;
+            color: var(--baroque-ivory);
+        }
+        
+        .tech-section li::before {
+            content: '▸';
+            position: absolute;
+            right: -1.5rem;
+            color: var(--baroque-gold);
+        }
+        
+        .modal-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+        
+        .tech-tag {
+            background-color: rgba(255, 105, 180, 0.1);
+            color: var(--baroque-gold);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            border: 1px solid rgba(255, 105, 180, 0.3);
+        }
+        
+        .mockup-section {
+            margin: 2.5rem 0;
+            padding: 2.5rem;
+            background-color: var(--baroque-brown);
+            border-radius: 16px;
+            border: 2px solid var(--baroque-gold);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        
+        .mockup-section h4 {
+            font-size: 1.625rem;
+            color: var(--baroque-gold);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            text-align: center;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(255, 105, 180, 0.2);
+        }
+        
+        .mockup-img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+            margin: 0 auto;
+            display: block;
+        }
+        
+        .mockup-img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 30px rgba(255, 105, 180, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .details-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .feature-gallery {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .feature-img {
+                max-height: 350px;
+                max-width: 100%;
+            }
+            
+            .feature-gallery:has(img:only-child) .feature-img {
+                max-width: 100%;
+                max-height: 400px;
+            }
+            
+            .feature-gallery:has(img:nth-child(2)) .feature-img {
+                max-width: 100%;
+                max-height: 350px;
+            }
+            
+            .feature-section {
+                padding: 1.5rem;
+                margin: 2rem 0;
+            }
+            
+            .feature-section h4 {
+                font-size: 1.375rem;
+            }
+            
+            .mockup-section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="language-switcher" style="position: fixed; top: 80px; right: 20px; z-index: 999; display: flex; gap: 0.5rem;">
+        <button class="lang-btn active" data-lang="en" style="background: transparent; border: 1px solid var(--border); color: var(--text-primary); padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; font-weight: 600; transition: all 0.3s ease; font-size: 0.875rem;">EN</button>
+        <button class="lang-btn" data-lang="ar" style="background: transparent; border: 1px solid var(--border); color: var(--text-primary); padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; font-weight: 600; transition: all 0.3s ease; font-size: 0.875rem;">AR</button>
+    </div>
+
+    <!-- Details Page -->
+    <section class="details-page section">
+        <div class="container">
+            <a href="index.html#projects" class="back-btn" data-en="← Back to Projects" data-ar="← العودة للمشاريع">← Back to Projects</a>
+            
+            <div class="details-hero">
+                <h1 data-en="xFile App" data-ar="تطبيق xFile">xFile App</h1>
+                <p data-en="A comprehensive file management application built with Flutter, featuring secure authentication and organized file categories with a modern and user-friendly interface." data-ar="تطبيق شامل لإدارة الملفات مبني بـ Flutter، يتضمن مصادقة آمنة وتصنيفات منظمة للملفات مع واجهة مستخدم حديثة وسهلة الاستخدام.">A comprehensive file management application built with Flutter, featuring secure authentication and organized file categories with a modern and user-friendly interface.</p>
+            </div>
+
+            <div class="modal-description">
+                <!-- Mockup Section -->
+                <div class="mockup-section">
+                    <h4 data-en="App Design" data-ar="تصميم التطبيق">App Design</h4>
+                    <img src="xFile/xFile_mokup.png" alt="xFile App Mockup" class="mockup-img">
+                </div>
+                
+                <h3 style="color: var(--baroque-gold); margin-top: 2rem; margin-bottom: 1rem;" data-en="About the Project" data-ar="عن المشروع">About the Project</h3>
+                <p style="color: var(--baroque-ivory); line-height: 1.9; margin-bottom: 2rem;" data-en="xFile is a comprehensive file management application built with Flutter. The app provides an exceptional user experience with a secure authentication system, organized file categories, and a main dashboard that provides quick access to important files. The app also features a welcoming onboarding experience for new users that makes using the app easy and enjoyable." data-ar="تطبيق xFile هو تطبيق شامل لإدارة الملفات تم بناؤه باستخدام Flutter. يوفر التطبيق تجربة مستخدم مميزة مع نظام مصادقة آمن، وتصنيفات منظمة للملفات، ولوحة تحكم رئيسية توفر وصولاً سريعاً للملفات المهمة. كما يتميز التطبيق بتجربة ترحيبية للمستخدمين الجدد (Onboarding) تجعل من استخدام التطبيق أمراً سهلاً وممتعاً.">xFile is a comprehensive file management application built with Flutter. The app provides an exceptional user experience with a secure authentication system, organized file categories, and a main dashboard that provides quick access to important files. The app also features a welcoming onboarding experience for new users that makes using the app easy and enjoyable.</p>
+                
+                <!-- Onboarding Feature -->
+                <div class="feature-section">
+                    <h4 data-en="Onboarding Screens" data-ar="شاشات الترحيب (Onboarding)">Onboarding Screens</h4>
+                    <div class="feature-gallery">
+                        <img src="xFile/welcoming_screen.jpeg" alt="Onboarding Screen" class="feature-img">
+                    </div>
+                    <p data-en="A smooth welcome experience that introduces users to the app and clearly and attractively explains the main features, making it easy for new users to understand how to use the app." data-ar="تجربة ترحيب سلسة تقدم المستخدمين للتطبيق وتوضح الميزات الرئيسية بطريقة واضحة وجذابة، مما يجعل من السهل على المستخدمين الجدد فهم كيفية استخدام التطبيق.">A smooth welcome experience that introduces users to the app and clearly and attractively explains the main features, making it easy for new users to understand how to use the app.</p>
+                </div>
+
+                <!-- Authentication Feature -->
+                <div class="feature-section">
+                    <h4 data-en="Authentication & Sign In" data-ar="المصادقة وتسجيل الدخول">Authentication & Sign In</h4>
+                    <div class="feature-gallery">
+                        <img src="xFile/signin_screen.jpeg" alt="Sign In Screen" class="feature-img">
+                    </div>
+                    <p data-en="A secure and reliable authentication system that ensures the protection of user data and files. A simple and easy-to-use sign-in interface." data-ar="نظام مصادقة آمن وموثوق يضمن حماية بيانات المستخدمين وملفاتهم. واجهة تسجيل دخول بسيطة وسهلة الاستخدام.">A secure and reliable authentication system that ensures the protection of user data and files. A simple and easy-to-use sign-in interface.</p>
+                </div>
+
+                <!-- Home Dashboard Feature -->
+                <div class="feature-section">
+                    <h4 data-en="Home Dashboard" data-ar="لوحة التحكم الرئيسية">Home Dashboard</h4>
+                    <div class="feature-gallery">
+                        <img src="xFile/hom_screen.jpeg" alt="Home Dashboard" class="feature-img">
+                    </div>
+                    <p data-en="A carefully designed main dashboard that provides quick access to important and frequently used files. A clean and organized design that makes navigation and finding files quickly easy." data-ar="لوحة تحكم رئيسية مصممة بعناية توفر وصولاً سريعاً للملفات المهمة والمستخدمة بشكل متكرر. تصميم نظيف ومنظم يسهل التنقل والعثور على الملفات بسرعة.">A carefully designed main dashboard that provides quick access to important and frequently used files. A clean and organized design that makes navigation and finding files quickly easy.</p>
+                </div>
+
+                <!-- Categories Feature -->
+                <div class="feature-section">
+                    <h4 data-en="File Categorization System" data-ar="نظام تصنيف الملفات">File Categorization System</h4>
+                    <div class="feature-gallery">
+                        <img src="xFile/category_screen.jpeg" alt="Categories Screen" class="feature-img">
+                    </div>
+                    <p data-en="An advanced and organized categorization system that allows users to organize their files effectively. Files can be categorized by type, date, or any other criterion the user wants." data-ar="نظام تصنيف متقدم ومنظم يسمح للمستخدمين بتنظيم ملفاتهم بشكل فعال. يمكن تصنيف الملفات حسب النوع، التاريخ، أو أي معيار آخر يريده المستخدم.">An advanced and organized categorization system that allows users to organize their files effectively. Files can be categorized by type, date, or any other criterion the user wants.</p>
+                </div>
+                
+                <div class="tech-section">
+                    <h3 data-en="Technical Features" data-ar="المميزات التقنية">Technical Features</h3>
+                    <ul>
+                        <li data-en="Secure and reliable authentication" data-ar="مصادقة آمنة وموثوقة">Secure and reliable authentication</li>
+                        <li data-en="Advanced and organized categorization system" data-ar="نظام تصنيف متقدم ومنظم">Advanced and organized categorization system</li>
+                        <li data-en="Main dashboard with quick access" data-ar="لوحة تحكم رئيسية مع وصول سريع">Main dashboard with quick access</li>
+                        <li data-en="Welcoming experience for new users" data-ar="تجربة ترحيبية للمستخدمين الجدد">Welcoming experience for new users</li>
+                        <li data-en="Modern and user-friendly interface" data-ar="واجهة مستخدم حديثة وسهلة الاستخدام">Modern and user-friendly interface</li>
+                        <li data-en="Responsive design that works on all devices" data-ar="تصميم متجاوب يعمل على جميع الأجهزة">Responsive design that works on all devices</li>
+                        <li data-en="High performance and fast response" data-ar="أداء عالي وسرعة في الاستجابة">High performance and fast response</li>
+                    </ul>
+                    
+                    <h3 style="margin-top: 2rem;" data-en="Technologies Used" data-ar="التقنيات المستخدمة">Technologies Used</h3>
+                    <div class="modal-tech">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">REST API</span>
+                        <span class="tech-tag">Authentication</span>
+                        <span class="tech-tag">File Management</span>
+                        <span class="tech-tag">UI/UX Design</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Rana AlMadhoun. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Language Switcher for Details Page
+        document.addEventListener('DOMContentLoaded', function() {
+            const langButtons = document.querySelectorAll('.lang-btn');
+            const html = document.documentElement;
+            const body = document.body;
+            
+            const savedLang = localStorage.getItem('portfolio-lang') || 'en';
+            setLanguage(savedLang);
+            
+            langButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    setLanguage(lang);
+                    localStorage.setItem('portfolio-lang', lang);
+                });
+            });
+            
+            function setLanguage(lang) {
+                langButtons.forEach(btn => {
+                    if (btn.getAttribute('data-lang') === lang) {
+                        btn.classList.add('active');
+                        btn.style.background = 'var(--accent-gold)';
+                        btn.style.borderColor = 'var(--accent-gold)';
+                        btn.style.color = 'var(--bg-primary)';
+                    } else {
+                        btn.classList.remove('active');
+                        btn.style.background = 'transparent';
+                        btn.style.borderColor = 'var(--border)';
+                        btn.style.color = 'var(--text-primary)';
+                    }
+                });
+                
+                html.setAttribute('lang', lang);
+                const dir = lang === 'ar' ? 'rtl' : 'ltr';
+                html.setAttribute('dir', dir);
+                
+                if (lang === 'ar') {
+                    body.classList.add('rtl');
+                } else {
+                    body.classList.remove('rtl');
+                }
+                
+                const elements = document.querySelectorAll('[data-en][data-ar]');
+                elements.forEach(element => {
+                    const text = lang === 'ar' 
+                        ? element.getAttribute('data-ar') 
+                        : element.getAttribute('data-en');
+                    
+                    if (element.tagName === 'P' || element.tagName === 'H1' || element.tagName === 'H2' || element.tagName === 'H3' || element.tagName === 'H4' || element.tagName === 'LI' || element.tagName === 'SPAN' || element.tagName === 'A' || element.tagName === 'TITLE') {
+                        element.textContent = text;
+                    } else {
+                        element.innerHTML = text;
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

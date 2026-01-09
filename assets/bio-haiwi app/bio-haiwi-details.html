@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تطبيق بيو حيوي - تفاصيل المشروع</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        :root {
+            --accent-pink: #FF69B4;
+            --accent-pink-light: #FFB6C1;
+            --accent-pink-dark: #FF1493;
+        }
+        
+        .details-page {
+            padding-top: 80px;
+            min-height: 100vh;
+        }
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            color: var(--accent-pink);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            color: var(--accent-pink-light);
+            transform: translateX(-5px);
+        }
+        
+        .details-hero {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        
+        .details-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--accent-pink) 0%, var(--accent-pink-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .details-hero p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .bio-link-btn, .details-btn {
+            display: inline-block;
+            padding: 0.875rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1rem;
+        }
+        
+        .bio-link-btn {
+            background-color: var(--accent-pink);
+            color: #000000;
+            box-shadow: 0 10px 25px rgba(255, 105, 180, 0.4);
+        }
+        
+        .bio-link-btn:hover {
+            background-color: var(--accent-pink-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(255, 105, 180, 0.5);
+        }
+        
+        .details-btn {
+            background-color: transparent;
+            color: var(--accent-pink);
+            border: 2px solid var(--accent-pink);
+            box-shadow: 0 10px 25px rgba(255, 105, 180, 0.2);
+        }
+        
+        .details-btn:hover {
+            background-color: rgba(255, 105, 180, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(255, 105, 180, 0.3);
+        }
+        
+        .mockup-section {
+            margin: 2.5rem 0;
+            padding: 2.5rem;
+            background-color: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        
+        .mockup-section h4 {
+            font-size: 1.625rem;
+            color: var(--accent-pink);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            text-align: center;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(255, 105, 180, 0.2);
+        }
+        
+        .mockup-img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+            margin: 0 auto;
+            display: block;
+        }
+        
+        .mockup-img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 30px rgba(255, 105, 180, 0.4);
+        }
+        
+        .feature-section {
+            margin: 2.5rem 0;
+            padding: 2.5rem;
+            background-color: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .feature-section h4 {
+            font-size: 1.625rem;
+            color: var(--accent-pink);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            text-align: center;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(255, 105, 180, 0.2);
+        }
+        
+        .feature-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 2rem 0;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .feature-img {
+            width: auto;
+            height: auto;
+            max-width: 320px;
+            max-height: 500px;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+            background-color: rgba(26, 26, 26, 0.5);
+            padding: 0.5rem;
+        }
+        
+        .feature-img:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 30px rgba(255, 105, 180, 0.4);
+        }
+        
+        .feature-gallery:has(img:only-child) {
+            justify-content: center;
+        }
+        
+        .feature-gallery:has(img:only-child) .feature-img {
+            max-width: 400px;
+            max-height: 600px;
+        }
+        
+        .feature-gallery:has(img:nth-child(2)) .feature-img {
+            max-width: 300px;
+            max-height: 480px;
+        }
+        
+        .feature-section p {
+            color: var(--text-secondary);
+            line-height: 1.9;
+            font-size: 1.0625rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 1.5rem auto 0;
+        }
+        
+        .tech-section {
+            margin-top: 2.5rem;
+            padding: 1.5rem;
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+        
+        .tech-section h3 {
+            color: var(--accent-pink);
+            margin-bottom: 1rem;
+        }
+        
+        .tech-section ul {
+            list-style: none;
+            padding-right: 1.5rem;
+        }
+        
+        .tech-section li {
+            padding: 0.5rem 0;
+            position: relative;
+            color: var(--text-secondary);
+        }
+        
+        .tech-section li::before {
+            content: '▸';
+            position: absolute;
+            right: -1.5rem;
+            color: var(--accent-pink);
+        }
+        
+        .modal-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+        
+        .tech-tag {
+            background-color: rgba(255, 105, 180, 0.1);
+            color: var(--accent-pink);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            border: 1px solid rgba(255, 105, 180, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .details-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .bio-link-btn, .details-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .feature-gallery {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .feature-img {
+                max-height: 350px;
+                max-width: 100%;
+            }
+            
+            .feature-gallery:has(img:only-child) .feature-img {
+                max-width: 100%;
+                max-height: 400px;
+            }
+            
+            .feature-gallery:has(img:nth-child(2)) .feature-img {
+                max-width: 100%;
+                max-height: 350px;
+            }
+            
+            .feature-section {
+                padding: 1.5rem;
+                margin: 2rem 0;
+            }
+            
+            .feature-section h4 {
+                font-size: 1.375rem;
+            }
+            
+            .mockup-section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="../vortex_logo.png" alt="ڤورتيكس" class="logo-img">
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="../index.html#home">الرئيسية</a></li>
+                <li><a href="../index.html#about">من نحن</a></li>
+                <li><a href="../index.html#workflow">كيف نعمل</a></li>
+                <li><a href="../index.html#services">خدماتنا</a></li>
+                <li><a href="../index.html#projects">نماذج أعمال</a></li>
+                <li><a href="../index.html#tech">التقنيات</a></li>
+                <li><a href="../index.html#why-us">لماذا نحن</a></li>
+                <li><a href="../index.html#contact">تواصل معنا</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Details Page -->
+    <section class="details-page section">
+        <div class="container">
+            <a href="../index.html#projects" class="back-btn">← العودة للمشاريع</a>
+            
+            <div class="details-hero">
+                <h1>تطبيق بيو حيوي</h1>
+                <p>تطبيق شامل لمصطلحات الأحياء باللغتين العربية والإنجليزية مع ميزات بحث متقدمة، المفضلة، ومزامنة البيانات</p>
+                
+                <div class="action-buttons">
+                    <a href="#" class="bio-link-btn" target="_blank">رابط البيو</a>
+                    <a href="#details" class="details-btn">تفاصيل المشروع</a>
+                </div>
+            </div>
+
+            <div class="modal-description" id="details">
+                <!-- Mockup Section -->
+                <div class="mockup-section">
+                    <h4>تصميم التطبيق</h4>
+                    <img src="Bio-Haiwi_mockup.png" alt="موكب تطبيق بيو حيوي" class="mockup-img">
+                </div>
+                
+                <h3>عن المشروع</h3>
+                <p>تطبيق بيو حيوي هو تطبيق متخصص في مصطلحات علم الأحياء باللغتين العربية والإنجليزية. يوفر التطبيق تجربة تعليمية شاملة مع إمكانية البحث السريع، حفظ المصطلحات المفضلة، ومزامنة البيانات بين الأجهزة. كما يدعم العمل في وضع عدم الاتصال (Offline) لضمان الوصول للمعلومات في أي وقت.</p>
+                
+                <!-- Logo Feature -->
+                <div class="feature-section">
+                    <h4>شعار التطبيق</h4>
+                    <div class="feature-gallery">
+                        <img src="bio-haiwi app/Bio-Haiwi_logo.png" alt="شعار بيو حيوي" class="feature-img">
+                    </div>
+                    <p>شعار احترافي يعكس هوية التطبيق التعليمية والتركيز على مصطلحات علم الأحياء.</p>
+                </div>
+
+                <!-- Bilingual Feature -->
+                <div class="feature-section">
+                    <h4>دعم اللغتين العربية والإنجليزية</h4>
+                    <div class="feature-gallery">
+                        <img src="bio-haiwi app/رئيسيةعربي.jpeg" alt="واجهة عربية" class="feature-img">
+                        <img src="bio-haiwi app/رئيسية انجليزي.jpeg" alt="واجهة إنجليزية" class="feature-img">
+                    </div>
+                    <p>التطبيق يدعم كلا اللغتين العربية والإنجليزية بشكل كامل، مما يجعله مناسباً لجميع المستخدمين سواء الناطقين بالعربية أو الإنجليزية أو كليهما.</p>
+                </div>
+
+                <!-- Search Feature -->
+                <div class="feature-section">
+                    <h4>البحث المتقدم</h4>
+                    <div class="feature-gallery">
+                        <img src="bio-haiwi app/بحث.jpeg" alt="ميزة البحث" class="feature-img">
+                    </div>
+                    <p>ميزة بحث سريعة وفعالة تسمح للمستخدمين بالعثور على أي مصطلح بسهولة سواء بالبحث بالعربية أو الإنجليزية.</p>
+                </div>
+
+                <!-- Admin Feature -->
+                <div class="feature-section">
+                    <h4>إدارة المصطلحات (للأدمن فقط)</h4>
+                    <div class="feature-gallery">
+                        <img src="bio-haiwi app/اضافة فقط ادمن.jpeg" alt="إضافة المصطلحات للأدمن" class="feature-img">
+                        <img src="bio-haiwi app/اضافة.jpeg" alt="واجهة الإضافة" class="feature-img">
+                    </div>
+                    <p>نظام إدارة متكامل يسمح للأدمن فقط بإضافة وتعديل المصطلحات، مما يضمن دقة وجودة المحتوى. واجهة سهلة ومريحة لإدارة المحتوى.</p>
+                </div>
+
+                <!-- Offline Feature -->
+                <div class="feature-section">
+                    <h4>عمل أوفلاين</h4>
+                    <p>التطبيق يعمل بشكل كامل في وضع عدم الاتصال (Offline Mode)، مما يعني أن المستخدمين يمكنهم الوصول لجميع المصطلحات حتى بدون اتصال بالإنترنت. البيانات محفوظة محلياً على الجهاز لضمان الاستمرارية في الاستخدام.</p>
+                </div>
+                
+                <div class="tech-section">
+                    <h3>المميزات التقنية</h3>
+                    <ul>
+                        <li>دعم كامل للغتين العربية والإنجليزية</li>
+                        <li>نظام بحث متقدم وسريع</li>
+                        <li>قائمة مفضلة محلية ومزامنة</li>
+                        <li>نظام إدارة محتوى للأدمن</li>
+                        <li>مزامنة بيانات بين الأجهزة</li>
+                        <li>عمل كامل في وضع عدم الاتصال</li>
+                        <li>تخزين محلي للبيانات</li>
+                        <li>واجهة مستخدم بسيطة وسهلة</li>
+                    </ul>
+                    
+                    <h3 style="margin-top: 2rem;">التقنيات المستخدمة</h3>
+                    <div class="modal-tech">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">Local Database</span>
+                        <span class="tech-tag">Offline Support</span>
+                        <span class="tech-tag">Data Sync</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 ڤورتيكس. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>
+

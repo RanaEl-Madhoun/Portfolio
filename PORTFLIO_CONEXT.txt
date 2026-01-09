@@ -1,0 +1,105 @@
+Rana AlMadhoun – Software Engineer (Flutter)
+About Me
+
+I am a Software Engineer specializing in mobile application development using Flutter and Firebase. I build scalable, maintainable applications with a strong focus on clean architecture, performance, and reliable data handling.
+
+I have experience delivering real-world applications published on Google Play, working across the full development lifecycle—from requirements analysis and system design to implementation, testing, and deployment. I enjoy solving practical problems and building user-focused software that balances technical quality with real needs.
+
+Software Engineer / Project Coordinator (Remote)
+
+2023 – 2025
+
+Led end-to-end delivery of remote software engineering projects, ensuring adherence to technical requirements, timelines, and quality standards.
+
+Translated business requirements into clear technical tasks and development plans.
+
+Coordinated collaboration between developers, clients, and stakeholders to maintain alignment and reduce ambiguity.
+
+Designed task breakdowns, sprint plans, and progress-tracking workflows to support consistent delivery.
+
+Prepared technical and analytical reports, dashboards, and summaries to support decision-making.
+
+Managed data workflows including validation, consistency checks, and documentation to ensure system reliability.
+
+Contributed to process improvements that enhanced team efficiency, code quality, and delivery speed.
+
+Projects
+Biology Terminology Mobile App
+
+Designed and developed a Flutter mobile application with structured, categorized biological content.
+
+Implemented offline caching and optimized search functionality for performance and usability.
+
+Designed data models and cleaned large datasets to ensure accuracy and fast retrieval.
+
+Focused on clean UI implementation and maintainable code structure.
+
+Paper Airplane – Business Analytics Project
+
+2023
+
+Performed data cleaning, preprocessing, and validation to ensure high-quality datasets.
+
+Built statistical models using Excel for analysis and forecasting.
+
+Generated structured analytical reports to communicate insights clearly.
+
+E-commerce Mobile Application – Gaza Sky Geeks
+
+May 2022 – Sep 2022
+
+Developed mobile features and backend logic to ensure correct data flow across the system.
+
+Managed structured product and user data with a focus on accuracy and consistency.
+
+Implemented integrations and documented workflows for maintainability and reporting.
+
+Technical Skills
+
+Programming Languages
+
+Dart, Java, Python, HTML, CSS, PHP, 
+
+Mobile & Backend
+
+Flutter, Firebase (Authentication, Cloud Firestore)
+
+REST API integration
+
+Google Maps integration
+
+State Management
+
+
+
+Data & Analysis
+
+Data modeling, cleaning, validation, and documentation
+
+Advanced Excel: Pivot Tables, VLOOKUP/XLOOKUP, INDEX-MATCH, regression analysis
+
+Statistical modeling, forecasting, and data visualization
+
+Tools
+
+Git, Google Sheets, Excel
+
+Soft Skills
+
+Problem-solving, attention to detail, communication, teamwork, self-learning
+
+Additional Knowledge
+
+Basic understanding of child protection and humanitarian project contexts
+
+Portfolio Goal
+
+To present a clear, professional software engineering portfolio that highlights:
+
+Real-world applications
+
+Technical decision-making
+
+Code quality and system reliability
+
+Focused on demonstrating engineering impact, not just UI screenshots.

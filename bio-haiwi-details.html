@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-en="Bio-Haiwi App - Project Details" data-ar="تطبيق بيو حيوي - تفاصيل المشروع">Bio-Haiwi App - Project Details</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --accent-pink: #FF69B4;
+            --accent-pink-light: #FFB6C1;
+            --accent-pink-dark: #FF1493;
+        }
+        
+        .details-page {
+            padding-top: 80px;
+            min-height: 100vh;
+        }
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            color: var(--baroque-gold);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            color: var(--baroque-gold-light);
+            transform: translateX(-5px);
+        }
+        
+        .details-hero {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        
+        .details-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--baroque-gold) 0%, var(--baroque-red) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .details-hero p {
+            font-size: 1.125rem;
+            color: var(--baroque-ivory);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .feature-section {
+            margin: 2.5rem 0;
+            padding: 2.5rem;
+            background-color: var(--baroque-brown);
+            border-radius: 16px;
+            border: 2px solid var(--baroque-gold);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .feature-section h4 {
+            font-size: 1.625rem;
+            color: var(--baroque-gold);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            text-align: center;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(255, 105, 180, 0.2);
+        }
+        
+        .feature-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 2rem 0;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .feature-img {
+            width: auto;
+            height: auto;
+            max-width: 320px;
+            max-height: 500px;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+            background-color: rgba(26, 26, 26, 0.5);
+            padding: 0.5rem;
+        }
+        
+        .feature-img:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 30px rgba(255, 105, 180, 0.4);
+        }
+        
+        .feature-gallery:has(img:only-child) {
+            justify-content: center;
+        }
+        
+        .feature-gallery:has(img:only-child) .feature-img {
+            max-width: 400px;
+            max-height: 600px;
+        }
+        
+        .feature-gallery:has(img:nth-child(2)) .feature-img {
+            max-width: 300px;
+            max-height: 480px;
+        }
+        
+        .feature-section p {
+            color: var(--baroque-ivory);
+            line-height: 1.9;
+            font-size: 1.0625rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 1.5rem auto 0;
+        }
+        
+        .tech-section {
+            margin-top: 2.5rem;
+            padding: 1.5rem;
+            background-color: var(--baroque-brown);
+            border-radius: 12px;
+            border: 2px solid var(--baroque-gold);
+        }
+        
+        .tech-section h3 {
+            color: var(--baroque-gold);
+            margin-bottom: 1rem;
+        }
+        
+        .tech-section ul {
+            list-style: none;
+            padding-right: 1.5rem;
+        }
+        
+        .tech-section li {
+            padding: 0.5rem 0;
+            position: relative;
+            color: var(--baroque-ivory);
+        }
+        
+        .tech-section li::before {
+            content: '▸';
+            position: absolute;
+            right: -1.5rem;
+            color: var(--baroque-gold);
+        }
+        
+        .modal-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+        
+        .tech-tag {
+            background-color: rgba(255, 105, 180, 0.1);
+            color: var(--baroque-gold);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            border: 1px solid rgba(255, 105, 180, 0.3);
+        }
+        
+        /* Tabs Styles */
+        .tabs-container {
+            margin: 2.5rem 0;
+        }
+        
+        .tabs-nav {
+            display: flex;
+            gap: 1rem;
+            border-bottom: 2px solid rgba(255, 105, 180, 0.2);
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn {
+            background: transparent;
+            border: none;
+            color: var(--baroque-ivory);
+            padding: 1rem 2rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        .tab-btn:hover {
+            color: var(--baroque-gold);
+        }
+        
+        .tab-btn.active {
+            color: var(--baroque-gold);
+        }
+        
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--baroque-gold);
+            border-radius: 3px 3px 0 0;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .details-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .feature-gallery {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .feature-img {
+                max-height: 350px;
+                max-width: 100%;
+            }
+            
+            .feature-gallery:has(img:only-child) .feature-img {
+                max-width: 100%;
+                max-height: 400px;
+            }
+            
+            .feature-gallery:has(img:nth-child(2)) .feature-img {
+                max-width: 100%;
+                max-height: 350px;
+            }
+            
+            .feature-section {
+                padding: 1.5rem;
+                margin: 2rem 0;
+            }
+            
+            .feature-section h4 {
+                font-size: 1.375rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="language-switcher" style="position: fixed; top: 80px; right: 20px; z-index: 999; display: flex; gap: 0.5rem;">
+        <button class="lang-btn active" data-lang="en" style="background: transparent; border: 1px solid var(--border); color: var(--text-primary); padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; font-weight: 600; transition: all 0.3s ease; font-size: 0.875rem;">EN</button>
+        <button class="lang-btn" data-lang="ar" style="background: transparent; border: 1px solid var(--border); color: var(--text-primary); padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; font-weight: 600; transition: all 0.3s ease; font-size: 0.875rem;">AR</button>
+    </div>
+
+    <!-- Details Page -->
+    <section class="details-page section">
+        <div class="container">
+            <a href="index.html#projects" class="back-btn" data-en="← Back to Projects" data-ar="← العودة للمشاريع">← Back to Projects</a>
+            
+            <div class="details-hero">
+                <h1 data-en="Bio-Haiwi App" data-ar="تطبيق بيو حيوي">Bio-Haiwi App</h1>
+                <p data-en="A comprehensive biology terminology application in both Arabic and English with advanced search features, favorites, and data synchronization" data-ar="تطبيق شامل لمصطلحات الأحياء باللغتين العربية والإنجليزية مع ميزات بحث متقدمة، المفضلة، ومزامنة البيانات">A comprehensive biology terminology application in both Arabic and English with advanced search features, favorites, and data synchronization</p>
+            </div>
+
+            <div class="modal-description">
+                <!-- Mockup Section -->
+                <div class="mockup-section" style="margin: 2.5rem 0; padding: 2.5rem; background-color: var(--baroque-brown); border-radius: 16px; border: 2px solid var(--baroque-gold); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); text-align: center;">
+                    <h4 style="font-size: 1.625rem; color: var(--baroque-gold); margin-bottom: 1.5rem; font-weight: 600; text-align: center; padding-bottom: 1rem; border-bottom: 2px solid rgba(255, 105, 180, 0.2);" data-en="App Design" data-ar="تصميم التطبيق">App Design</h4>
+                    <img src="assets/bio-haiwi app/Bio-Haiwi_mockup.png" alt="Bio-Haiwi App Mockup" style="width: 100%; max-width: 600px; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); transition: all 0.3s ease; margin: 0 auto; display: block;">
+                </div>
+                
+                <h3 style="color: var(--baroque-gold); margin-top: 2rem; margin-bottom: 1rem;" data-en="About the Project" data-ar="عن المشروع">About the Project</h3>
+                <p style="color: var(--baroque-ivory); line-height: 1.9; margin-bottom: 2rem;" data-en="Bio-Haiwi is a specialized application for biology terminology in both Arabic and English. The app provides a comprehensive educational experience with fast search capabilities, saving favorite terms, and data synchronization between devices. It also supports offline mode to ensure access to information at any time." data-ar="تطبيق بيو حيوي هو تطبيق متخصص في مصطلحات علم الأحياء باللغتين العربية والإنجليزية. يوفر التطبيق تجربة تعليمية شاملة مع إمكانية البحث السريع، حفظ المصطلحات المفضلة، ومزامنة البيانات بين الأجهزة. كما يدعم العمل في وضع عدم الاتصال (Offline) لضمان الوصول للمعلومات في أي وقت.">Bio-Haiwi is a specialized application for biology terminology in both Arabic and English. The app provides a comprehensive educational experience with fast search capabilities, saving favorite terms, and data synchronization between devices. It also supports offline mode to ensure access to information at any time.</p>
+                
+                <!-- Tabs Section -->
+                <div class="tabs-container">
+                    <div class="tabs-nav">
+                        <button class="tab-btn active" onclick="showTab('features')" data-en="Features" data-ar="الميزات">Features</button>
+                        <button class="tab-btn" onclick="showTab('screens')" data-en="Screens" data-ar="الشاشات">Screens</button>
+                        <button class="tab-btn" onclick="showTab('tech')" data-en="Technologies" data-ar="التقنيات">Technologies</button>
+                    </div>
+                    
+                    <!-- Features Tab -->
+                    <div id="features-tab" class="tab-content active">
+                        <!-- Bilingual Feature -->
+                        <div class="feature-section">
+                            <h4 data-en="Arabic and English Language Support" data-ar="دعم اللغتين العربية والإنجليزية">Arabic and English Language Support</h4>
+                            <div class="feature-gallery">
+                                <img src="assets/bio-haiwi app/رئيسيةعربي.jpeg" alt="Arabic Interface" class="feature-img">
+                                <img src="assets/bio-haiwi app/رئيسية انجليزي.jpeg" alt="English Interface" class="feature-img">
+                            </div>
+                            <p data-en="The app fully supports both Arabic and English languages, making it suitable for all users whether they speak Arabic, English, or both." data-ar="التطبيق يدعم كلا اللغتين العربية والإنجليزية بشكل كامل، مما يجعله مناسباً لجميع المستخدمين سواء الناطقين بالعربية أو الإنجليزية أو كليهما.">The app fully supports both Arabic and English languages, making it suitable for all users whether they speak Arabic, English, or both.</p>
+                        </div>
+
+                        <!-- Search Feature -->
+                        <div class="feature-section">
+                            <h4 data-en="Advanced Search" data-ar="البحث المتقدم">Advanced Search</h4>
+                            <div class="feature-gallery">
+                                <img src="assets/bio-haiwi app/بحث.jpeg" alt="Search Feature" class="feature-img">
+                            </div>
+                            <p data-en="A fast and effective search feature that allows users to easily find any term whether searching in Arabic or English." data-ar="ميزة بحث سريعة وفعالة تسمح للمستخدمين بالعثور على أي مصطلح بسهولة سواء بالبحث بالعربية أو الإنجليزية.">A fast and effective search feature that allows users to easily find any term whether searching in Arabic or English.</p>
+                        </div>
+
+                        <!-- Admin Feature -->
+                        <div class="feature-section">
+                            <h4 data-en="Term Management (Admin Only)" data-ar="إدارة المصطلحات (للأدمن فقط)">Term Management (Admin Only)</h4>
+                            <div class="feature-gallery">
+                                <img src="assets/bio-haiwi app/اضافة فقط ادمن.jpeg" alt="Admin Term Addition" class="feature-img">
+                                <img src="assets/bio-haiwi app/اضافة.jpeg" alt="Add Interface" class="feature-img">
+                            </div>
+                            <p data-en="An integrated management system that allows only admins to add and modify terms, ensuring content accuracy and quality. An easy and comfortable interface for content management." data-ar="نظام إدارة متكامل يسمح للأدمن فقط بإضافة وتعديل المصطلحات، مما يضمن دقة وجودة المحتوى. واجهة سهلة ومريحة لإدارة المحتوى.">An integrated management system that allows only admins to add and modify terms, ensuring content accuracy and quality. An easy and comfortable interface for content management.</p>
+                        </div>
+
+                        <!-- Offline Feature -->
+                        <div class="feature-section">
+                            <h4 data-en="Offline Mode" data-ar="عمل أوفلاين">Offline Mode</h4>
+                            <p data-en="The app works fully in offline mode, meaning users can access all terms even without an internet connection. Data is stored locally on the device to ensure continuity of use." data-ar="التطبيق يعمل بشكل كامل في وضع عدم الاتصال (Offline Mode)، مما يعني أن المستخدمين يمكنهم الوصول لجميع المصطلحات حتى بدون اتصال بالإنترنت. البيانات محفوظة محلياً على الجهاز لضمان الاستمرارية في الاستخدام.">The app works fully in offline mode, meaning users can access all terms even without an internet connection. Data is stored locally on the device to ensure continuity of use.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Screens Tab -->
+                    <div id="screens-tab" class="tab-content">
+                        <!-- Logo Feature -->
+                        <div class="feature-section">
+                            <h4 data-en="App Logo" data-ar="شعار التطبيق">App Logo</h4>
+                            <div class="feature-gallery">
+                                <img src="assets/bio-haiwi app/Bio-Haiwi_logo.png" alt="Bio-Haiwi Logo" class="feature-img">
+                            </div>
+                            <p data-en="A professional logo that reflects the app's educational identity and focus on biology terminology." data-ar="شعار احترافي يعكس هوية التطبيق التعليمية والتركيز على مصطلحات علم الأحياء.">A professional logo that reflects the app's educational identity and focus on biology terminology.</p>
+                        </div>
+
+                        <!-- All Screens Gallery -->
+                        <div class="feature-section">
+                            <h4 data-en="Screens Gallery" data-ar="معرض الشاشات">Screens Gallery</h4>
+                            <div class="feature-gallery">
+                                <img src="assets/bio-haiwi app/رئيسيةعربي.jpeg" alt="Arabic Interface" class="feature-img">
+                                <img src="assets/bio-haiwi app/رئيسية انجليزي.jpeg" alt="English Interface" class="feature-img">
+                                <img src="assets/bio-haiwi app/بحث.jpeg" alt="Search Feature" class="feature-img">
+                                <img src="assets/bio-haiwi app/اضافة فقط ادمن.jpeg" alt="Admin Term Addition" class="feature-img">
+                                <img src="assets/bio-haiwi app/اضافة.jpeg" alt="Add Interface" class="feature-img">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tech Tab -->
+                    <div id="tech-tab" class="tab-content">
+                        <div class="tech-section">
+                            <h3 data-en="Technical Features" data-ar="المميزات التقنية">Technical Features</h3>
+                            <ul>
+                                <li data-en="Full support for Arabic and English languages" data-ar="دعم كامل للغتين العربية والإنجليزية">Full support for Arabic and English languages</li>
+                                <li data-en="Advanced and fast search system" data-ar="نظام بحث متقدم وسريع">Advanced and fast search system</li>
+                                <li data-en="Local and synchronized favorites list" data-ar="قائمة مفضلة محلية ومزامنة">Local and synchronized favorites list</li>
+                                <li data-en="Content management system for admin" data-ar="نظام إدارة محتوى للأدمن">Content management system for admin</li>
+                                <li data-en="Data synchronization between devices" data-ar="مزامنة بيانات بين الأجهزة">Data synchronization between devices</li>
+                                <li data-en="Full offline mode operation" data-ar="عمل كامل في وضع عدم الاتصال">Full offline mode operation</li>
+                                <li data-en="Local data storage" data-ar="تخزين محلي للبيانات">Local data storage</li>
+                                <li data-en="Simple and easy user interface" data-ar="واجهة مستخدم بسيطة وسهلة">Simple and easy user interface</li>
+                            </ul>
+                            
+                            <h3 style="margin-top: 2rem;" data-en="Technologies Used" data-ar="التقنيات المستخدمة">Technologies Used</h3>
+                            <div class="modal-tech">
+                                <span class="tech-tag">Flutter</span>
+                                <span class="tech-tag">Firebase</span>
+                                <span class="tech-tag">Local Database</span>
+                                <span class="tech-tag">Offline Support</span>
+                                <span class="tech-tag">Data Sync</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p data-en="&copy; 2025 Rana AlMadhoun. All rights reserved." data-ar="&copy; 2025 رنا المدهون. جميع الحقوق محفوظة.">&copy; 2025 Rana AlMadhoun. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Language Switcher for Details Page
+        document.addEventListener('DOMContentLoaded', function() {
+            const langButtons = document.querySelectorAll('.lang-btn');
+            const html = document.documentElement;
+            const body = document.body;
+            
+            const savedLang = localStorage.getItem('portfolio-lang') || 'en';
+            setLanguage(savedLang);
+            
+            langButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    setLanguage(lang);
+                    localStorage.setItem('portfolio-lang', lang);
+                });
+            });
+            
+            function setLanguage(lang) {
+                langButtons.forEach(btn => {
+                    if (btn.getAttribute('data-lang') === lang) {
+                        btn.classList.add('active');
+                        btn.style.background = 'var(--accent-gold)';
+                        btn.style.borderColor = 'var(--accent-gold)';
+                        btn.style.color = 'var(--bg-primary)';
+                    } else {
+                        btn.classList.remove('active');
+                        btn.style.background = 'transparent';
+                        btn.style.borderColor = 'var(--border)';
+                        btn.style.color = 'var(--text-primary)';
+                    }
+                });
+                
+                html.setAttribute('lang', lang);
+                const dir = lang === 'ar' ? 'rtl' : 'ltr';
+                html.setAttribute('dir', dir);
+                
+                if (lang === 'ar') {
+                    body.classList.add('rtl');
+                } else {
+                    body.classList.remove('rtl');
+                }
+                
+                const elements = document.querySelectorAll('[data-en][data-ar]');
+                elements.forEach(element => {
+                    const text = lang === 'ar' 
+                        ? element.getAttribute('data-ar') 
+                        : element.getAttribute('data-en');
+                    
+                    if (element.tagName === 'P' || element.tagName === 'H1' || element.tagName === 'H2' || element.tagName === 'H3' || element.tagName === 'H4' || element.tagName === 'LI' || element.tagName === 'SPAN' || element.tagName === 'A' || element.tagName === 'TITLE' || element.tagName === 'BUTTON') {
+                        element.textContent = text;
+                    } else {
+                        element.innerHTML = text;
+                    }
+                });
+            }
+        });
+
+        function showTab(tabName) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all buttons
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            tabButtons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            document.getElementById(tabName + '-tab').classList.add('active');
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
+
