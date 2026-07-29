@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Projects Showcase | Systems.Lab</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=Inter:wght@400;500&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-variant": "#e0e3e5",
+                    "tertiary-fixed-dim": "#b7c8e1",
+                    "error-container": "#ffdad6",
+                    "primary-fixed-dim": "#bec6e0",
+                    "surface-bright": "#f7f9fb",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "surface-container-low": "#f2f4f6",
+                    "on-error": "#ffffff",
+                    "secondary-container": "#39b8fd",
+                    "secondary-fixed-dim": "#89ceff",
+                    "background": "#f7f9fb",
+                    "surface-dim": "#d8dadc",
+                    "on-error-container": "#93000a",
+                    "surface": "#f7f9fb",
+                    "primary-container": "#131b2e",
+                    "tertiary-container": "#0b1c30",
+                    "tertiary": "#000000",
+                    "on-tertiary-fixed": "#0b1c30",
+                    "on-tertiary-container": "#75859d",
+                    "on-secondary-fixed-variant": "#004c6e",
+                    "outline": "#76777d",
+                    "inverse-on-surface": "#eff1f3",
+                    "inverse-surface": "#2d3133",
+                    "inverse-primary": "#bec6e0",
+                    "on-surface": "#191c1e",
+                    "secondary-fixed": "#c9e6ff",
+                    "on-primary-fixed": "#131b2e",
+                    "on-tertiary-fixed-variant": "#38485d",
+                    "on-tertiary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "on-surface-variant": "#45464d",
+                    "surface-container": "#eceef0",
+                    "on-secondary-fixed": "#001e2f",
+                    "surface-container-highest": "#e0e3e5",
+                    "surface-container-high": "#e6e8ea",
+                    "on-secondary": "#ffffff",
+                    "outline-variant": "#c6c6cd",
+                    "surface-tint": "#565e74",
+                    "primary": "#000000",
+                    "on-secondary-container": "#004666",
+                    "primary-fixed": "#dae2fd",
+                    "error": "#ba1a1a",
+                    "secondary": "#006591",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed": "#d3e4fe",
+                    "on-primary-container": "#7c839b",
+                    "on-background": "#191c1e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "lg": "48px",
+                    "xs": "8px",
+                    "md": "24px",
+                    "base": "4px",
+                    "container-max": "1280px",
+                    "xl": "80px",
+                    "gutter": "24px",
+                    "sm": "16px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Hanken Grotesk"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-mono": ["Geist Mono"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "headline-sm": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-mono": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-md": ["30px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(226, 232, 240, 0.5);
+      }
+      .node-bullet::before {
+        content: '•';
+        @apply text-secondary mr-2 font-bold;
+      }
+      .tech-tag {
+        @apply px-3 py-1 bg-surface-container-high rounded-full font-label-mono text-label-mono text-on-surface-variant transition-colors hover:bg-secondary-container hover:text-on-secondary-container;
+      }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-secondary-fixed-dim">
+<!-- TopNavBar -->
+<header class="sticky top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-surface-variant/20 shadow-sm transition-all duration-300">
+<div class="flex justify-between items-center h-20 px-lg max-w-container-max mx-auto">
+<a class="font-display-lg text-display-lg tracking-tighter text-primary" href="#">Systems.Lab</a>
+<nav class="hidden md:flex items-center gap-lg">
+<a class="text-secondary font-bold border-b-2 border-secondary transition-all duration-300 ease-in-out" href="#">Projects</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-all duration-300 ease-in-out" href="#">Experience</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-all duration-300 ease-in-out" href="#">Education</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-all duration-300 ease-in-out" href="#">Contact</a>
+</nav>
+<div class="flex items-center gap-md">
+<button class="bg-primary text-on-primary px-md py-sm rounded-lg font-body-md text-body-md active:scale-95 duration-150 transition-all hover:opacity-90">
+                    Download CV
+                </button>
+<div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="Professional studio portrait of a computer systems engineer with a neutral expression, wearing a minimalist navy blue blazer. The background is a clean, bright studio setting with soft high-key lighting that emphasizes a corporate and technical persona. The visual style is crisp, high-resolution, and modern." src="https://lh3.googleusercontent.com/aida-public/AB6AXuApqIT5109pR2-Dfm4tEDwBykgRXhPC2_w3QWtFFPP-sxOvcrugP2-SYIaLDwgJ12Ab8ILK4AicLu3sODlESF57B_a88SdheLOPOPmn5mCJELiF-oC2rEaKAm7xdPjLrh7St_AgIbIHKOLZDjCQiwwwsu48Dt6g7q0IfAiS3dOLskGX9tkemntSBgAkxbfcyr8nn51gpmdX6uBZSAAqdA1KjP1NsSpmu42k-pa-KBmdD3OecxxLMjfa"/>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-lg py-xl">
+<!-- Hero Section -->
+<section class="mb-xl">
+<h1 class="font-display-lg text-display-lg mb-md text-primary max-w-2xl">
+                Engineering <span class="text-secondary">Robust</span> Systems &amp; Mobile Architectures
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl">
+                A selection of research-driven projects focusing on real-time processing, AI integration in Flutter, and low-level system design. Every project represents a commitment to technical rigor and clean architectural patterns.
+            </p>
+</section>
+<!-- Projects Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Featured Project: AI-Powered Flutter Application -->
+<div class="md:col-span-8 group relative overflow-hidden rounded-xl glass-card transition-all duration-500 hover:shadow-xl hover:-translate-y-1">
+<div class="h-96 w-full relative">
+<img class="w-full h-full object-cover" data-alt="A sophisticated UI mockup of a Flutter mobile application interface showcasing AI integration. The screen displays real-time data streams and neural network visualizations in a clean, minimalist style using navy, white, and electric blue colors. The lighting is soft and professional, reflecting a high-tech lab environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnyLq-1p1cq4Uqum4ZU0mjaFbgr87FSwUXT3NFCY2JP5Ecxwxz3k5t0cEvaxJTbnGBSPSV6r7pHcLqsSwFKc_S60Ri8y38PEbXF3E9vgmKynI68OB-ew7lVw3-pdsPXvxxLnoPzNVVhVTiPfO-8vTIO_bi-y0MN0vGKttO0Q3IpFYts4wVO-yAZkY0_NEIe1ft4qelRzI2VmY0Cp9E6FxAVuhrY_zuPtie0Xljkm4yceJGax76B7PI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary-container/80 to-transparent flex flex-col justify-end p-lg">
+<div class="flex gap-sm mb-base">
+<span class="tech-tag">Flutter</span>
+<span class="tech-tag">Open-Source LLM</span>
+<span class="tech-tag">TensorFlow Lite</span>
+</div>
+<h2 class="font-display-lg text-display-lg text-on-primary mb-xs">AI-Powered Flutter Application</h2>
+<p class="text-primary-fixed-dim font-body-md mb-md max-w-xl">Integrating edge-based open-source models for real-time natural language processing without external API reliance.</p>
+<a class="inline-flex items-center text-secondary-fixed hover:underline font-bold" href="#">
+                            View Project 
+                            <span class="material-symbols-outlined ml-base">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Project 2: Real-time Mobile Systems -->
+<div class="md:col-span-4 glass-card p-md rounded-xl flex flex-col justify-between group transition-all duration-300 hover:shadow-lg">
+<div>
+<div class="w-full h-48 rounded-lg overflow-hidden mb-md border border-outline-variant">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="An intricate technical visualization of a real-time mobile system architecture with low-latency data nodes. The aesthetic is inspired by aerospace instrument clusters, featuring deep navy backgrounds and crisp, thin lines in secondary blue. The lighting is focused and professional, creating an atmosphere of technical precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9FDhtZMEcGmZKgiJQ-FuipdK9EuX6mP4tngDG0vKAjVvouSj-RxU_cq641grq-gtD430A2pzJ7ENnJccAmQ7hJ31Rib1hrJ0xu2J9aQsVBTffi_7Fgf_E71CunhyQZzkFubApsD2bWHATO88yp9OTgBYt4IwqgVhDYOVYQDogBMnBQdvaI7S4W3MMn1VV7LFfMXILYgfS7JcTZXvxw81YS_1ASEULZfvswNvCrWOjKcXd_4CA4Zur"/>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-xs">Real-time Mobile Systems</h3>
+<p class="text-on-surface-variant font-body-md mb-md">Architecture design for high-throughput sensor data processing with sub-50ms latency on mobile hardware.</p>
+</div>
+<div class="flex flex-wrap gap-xs mt-auto mb-md">
+<span class="tech-tag">Dart</span>
+<span class="tech-tag">C++ Interop</span>
+<span class="tech-tag">RTOS</span>
+</div>
+<a class="text-secondary font-bold inline-flex items-center" href="#">
+                    Project Details
+                    <span class="material-symbols-outlined text-md ml-xs">trending_flat</span>
+</a>
+</div>
+<!-- Project 3: Distributed Systems Dashboard -->
+<div class="md:col-span-4 glass-card p-md rounded-xl flex flex-col group transition-all duration-300 hover:shadow-lg">
+<div class="flex-1">
+<div class="mb-md flex justify-between items-start">
+<div class="p-base bg-secondary-fixed-dim rounded-lg text-on-secondary-fixed">
+<span class="material-symbols-outlined" data-icon="hub">hub</span>
+</div>
+<span class="font-label-mono text-label-mono text-on-surface-variant uppercase">Case Study</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-xs">Distributed Node Monitor</h3>
+<p class="text-on-surface-variant font-body-md mb-md">A Flutter-based dashboard for monitoring 500+ IoT nodes in a mesh network configuration.</p>
+</div>
+<div class="flex flex-wrap gap-xs mb-md">
+<span class="tech-tag">MQTT</span>
+<span class="tech-tag">Go</span>
+<span class="tech-tag">Flutter Web</span>
+</div>
+<a class="text-primary font-bold inline-flex items-center group-hover:text-secondary transition-colors" href="#">
+                    View Project
+                    <span class="material-symbols-outlined ml-xs">open_in_new</span>
+</a>
+</div>
+<!-- Project 4: Embedded Image Processor -->
+<div class="md:col-span-8 glass-card rounded-xl flex flex-col md:flex-row overflow-hidden group transition-all duration-300 hover:shadow-lg">
+<div class="md:w-1/2 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Macro photography of a customized embedded circuit board with tiny LED indicators glowing in soft blue and white. The background is a clean, white engineering laboratory surface, slightly out of focus. The overall image has a corporate modernist feel, high-key lighting, and professional clarity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-iuVzepUGwo83pj1F2A4HatAKJ8GloJEukbdkJ7rjKcbO325iLPKFHVAQtFDwDvexzbk-iX32JLVwkefuSyoYCrapp6PkBSBjN4s4zq4EtY_MsqKpGSFhXNawHtpVaYOGs5fE1-QE6Hft0k1LYPwsaRU_y2WSLVJkvqEtpypdSb69Iy8CVydjUjIGh8hMRqahC5434wvqEiEb4VCJD_9YPtBCBw_WKYDCuTHqd8lXBUCD4_ZQyOh6"/>
+</div>
+<div class="md:w-1/2 p-lg flex flex-col justify-center">
+<h3 class="font-headline-md text-headline-md text-primary mb-xs">Embedded Vision Engine</h3>
+<p class="text-on-surface-variant font-body-md mb-md">Low-power image processing pipeline implemented in Verilog and integrated with a Flutter mobile control interface.</p>
+<ul class="space-y-xs mb-md">
+<li class="flex items-center text-body-md font-body-md text-on-surface-variant"><span class="material-symbols-outlined text-secondary mr-2 text-[18px]">check_circle</span> 40% Power Efficiency Gain</li>
+<li class="flex items-center text-body-md font-body-md text-on-surface-variant"><span class="material-symbols-outlined text-secondary mr-2 text-[18px]">check_circle</span> FPGA Interfacing</li>
+</ul>
+<div class="flex gap-xs mb-md">
+<span class="tech-tag">Verilog</span>
+<span class="tech-tag">Flutter</span>
+</div>
+<a class="text-secondary font-bold inline-flex items-center w-fit group-hover:gap-xs transition-all" href="#">
+                        Deep Dive
+                        <span class="material-symbols-outlined ml-xs">chevron_right</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Technical Capabilities Footer -->
+<section class="mt-xl py-lg border-t border-outline-variant/30 grid grid-cols-1 md:grid-cols-3 gap-lg">
+<div class="p-md bg-surface-container rounded-xl">
+<span class="material-symbols-outlined text-secondary mb-xs" data-icon="terminal">terminal</span>
+<h4 class="font-headline-sm text-headline-sm mb-xs">System Architecture</h4>
+<p class="text-body-md font-body-md text-on-surface-variant">Designing scalable, reliable backends and low-level integrations that bridge hardware and software.</p>
+</div>
+<div class="p-md bg-surface-container rounded-xl">
+<span class="material-symbols-outlined text-secondary mb-xs" data-icon="smartphone">smartphone</span>
+<h4 class="font-headline-sm text-headline-sm mb-xs">Mobile Engineering</h4>
+<p class="text-body-md font-body-md text-on-surface-variant">Advanced Flutter implementation with custom native plugins for high-performance mobile requirements.</p>
+</div>
+<div class="p-md bg-surface-container rounded-xl">
+<span class="material-symbols-outlined text-secondary mb-xs" data-icon="memory">memory</span>
+<h4 class="font-headline-sm text-headline-sm mb-xs">Embedded Systems</h4>
+<p class="text-body-md font-body-md text-on-surface-variant">Expertise in real-time operating systems, microcontroller firmware, and FPGA-based logic design.</p>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-xl bg-surface-container-lowest border-t border-outline-variant/30">
+<div class="flex flex-col md:flex-row justify-between items-center px-lg max-w-container-max mx-auto gap-md">
+<div class="flex flex-col gap-xs items-center md:items-start">
+<span class="font-headline-sm text-headline-sm text-primary">Systems.Lab</span>
+<span class="font-label-mono text-label-mono text-on-surface-variant">© 2024 Systems.Lab | Computer Systems Engineer</span>
+</div>
+<div class="flex gap-lg">
+<a class="text-on-surface-variant font-label-mono text-label-mono hover:text-secondary transition-colors" href="#">GitHub</a>
+<a class="text-on-surface-variant font-label-mono text-label-mono hover:text-secondary transition-colors" href="#">LinkedIn</a>
+<a class="text-on-surface-variant font-label-mono text-label-mono hover:text-secondary transition-colors" href="#">ResearchGate</a>
+<a class="text-on-surface-variant font-label-mono text-label-mono hover:text-secondary transition-colors" href="#">Email</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for project cards
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        // Navigation scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-md', 'bg-surface/95');
+            } else {
+                header.classList.remove('shadow-md', 'bg-surface/95');
+            }
+        });
+    </script>
+</body></html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maktub — Voice to Text | Case Study</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600;6..72,700&family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #060713;
+            --panel: rgba(255, 255, 255, 0.06);
+            --ink: #f5f6ff;
+            --muted: rgba(245, 246, 255, 0.68);
+            --primary: #56a3ff;
+            --outline: rgba(124, 102, 255, 0.35);
+        }
+        body {
+            margin: 0;
+            font-family: "Newsreader", serif;
+            background: var(--bg);
+            color: var(--ink);
+            line-height: 1.7;
+        }
+        .wrap {
+            width: min(980px, 92%);
+            margin: 0 auto;
+            padding: 2.2rem 0 3.2rem;
+        }
+        .meta {
+            font-family: "Work Sans", sans-serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--muted);
+            margin-bottom: 0.6rem;
+        }
+        h1 {
+            margin: 0 0 0.5rem;
+            font-size: 2.2rem;
+            color: var(--primary);
+        }
+        .rule {
+            border-top: 2px solid var(--outline);
+            margin: 1.2rem 0 1.6rem;
+        }
+        .summary {
+            background: var(--panel);
+            border: 1px solid var(--outline);
+            border-radius: 16px;
+            padding: 1.2rem 1.3rem;
+            color: var(--muted);
+        }
+        .grid {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(2, 1fr);
+            margin-top: 1.4rem;
+        }
+        img {
+            width: 100%;
+            border-radius: 14px;
+            border: 1px solid var(--outline);
+            background: rgba(255,255,255,0.03);
+            display: block;
+        }
+        .back {
+            display: inline-block;
+            margin-top: 1.6rem;
+            font-family: "Work Sans", sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.72rem;
+            color: var(--primary);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+        }
+        .back:hover { border-bottom-color: var(--primary); }
+
+        .features {
+            margin-top: 1.2rem;
+            padding-left: 1.1rem;
+            color: var(--muted);
+            font-family: "Work Sans", sans-serif;
+            font-size: 0.95rem;
+        }
+        .features li { margin: 0.3rem 0; }
+
+        @media (max-width: 740px) {
+            .grid { grid-template-columns: 1fr; }
+            h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <main class="wrap">
+        <p class="meta">Case Study</p>
+        <h1>Maktub — Voice to Text</h1>
+
+        <div class="summary">
+            Maktub is a lightweight Flutter app that converts voice recordings into text using speech-to-text APIs.
+            It was born from a simple frustration: there was no clean, simple tool that fits the need.
+        </div>
+
+        <div class="rule"></div>
+
+        <p style="margin: 0 0 0.8rem; color: var(--muted); font-family: 'Work Sans', sans-serif;">
+            Key highlights:
+        </p>
+        <ul class="features">
+            <li>Direct conversion from voice to text.</li>
+            <li>Upload audio files and transcribe them.</li>
+            <li>Supports two engines: <strong>Groq (Whisper)</strong> and <strong>Deepgram</strong>.</li>
+            <li>Handles large files via automatic splitting into small parts.</li>
+            <li>Local library for saving clips and notes.</li>
+            <li>Bilingual interface (Arabic / English).</li>
+            <li>Supports multiple formats: MP3, WAV, M4A, MP4, OGG, FLAC, WEBM.</li>
+        </ul>
+
+        <div class="grid">
+            <img src="maktub/m1.jpeg" alt="Maktub screen 1">
+            <img src="maktub/m2.jpeg" alt="Maktub screen 2">
+            <img src="maktub/m3.jpeg" alt="Maktub screen 3">
+            <img src="maktub/m4.jpeg" alt="Maktub screen 4">
+            <img src="maktub/m5.jpeg" alt="Maktub screen 5">
+        </div>
+
+        <a class="back" href="index.html#projects">Back to projects</a>
+    </main>
+</body>
+</html>
+

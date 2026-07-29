@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rana AlMadhoun · Software Engineer & Mobile Developer</title>
+<meta name="description" content="Rana AlMadhoun — Software Engineer and Mobile Developer building bilingual, AI-powered software.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAF7F0;
+    --paper-dim:#F1ECE1;
+    --ink:#1C2430;
+    --ink-soft:#5B6472;
+    --teal:#2F6F5E;
+    --teal-dark:#20493D;
+    --gold:#B8923F;
+    --line:#DDD5C2;
+    --max:840px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--gold); color:var(--paper);}
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 28px;}
+
+  .eyebrow{
+    display:flex; align-items:baseline; gap:10px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--teal-dark);
+    margin-bottom:14px;
+  }
+  .eyebrow .ar{
+    font-family:'IBM Plex Sans Arabic', sans-serif;
+    font-size:14px; letter-spacing:0; text-transform:none;
+    color:var(--gold);
+  }
+  .eyebrow::before{content:""; width:20px; height:1px; background:var(--gold);}
+
+  h1,h2,h3{font-family:'Fraunces', serif; font-weight:600; line-height:1.15; color:var(--ink);}
+
+  /* NAV */
+  nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(250,247,240,.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{display:flex; align-items:center; justify-content:space-between; height:60px;}
+  .brand{font-family:'Fraunces', serif; font-weight:600; font-size:18px;}
+  .brand .dot{color:var(--gold);}
+  .navlinks{display:flex; gap:26px; font-size:14px; font-weight:500;}
+  .navlinks a{color:var(--ink-soft); transition:color .15s;}
+  .navlinks a:hover{color:var(--teal-dark);}
+  .navtoggle{display:none;}
+
+  /* HERO */
+  .hero{padding:96px 0 72px; border-bottom:1px solid var(--line);}
+  .hero h1{font-size:clamp(40px,6vw,64px); letter-spacing:-.01em;}
+  .hero .role{
+    font-family:'IBM Plex Mono', monospace; font-size:14px; color:var(--ink-soft);
+    margin-top:14px; letter-spacing:.02em;
+  }
+  .hero p.lede{
+    max-width:560px; margin-top:24px; font-size:18px; color:var(--ink-soft);
+  }
+  .cta-row{display:flex; gap:14px; margin-top:36px; flex-wrap:wrap;}
+  .btn{
+    display:inline-block; padding:12px 22px; font-size:14px; font-weight:600;
+    border:1px solid var(--ink); border-radius:2px; transition:.15s;
+  }
+  .btn.primary{background:var(--teal-dark); border-color:var(--teal-dark); color:var(--paper);}
+  .btn.primary:hover{background:var(--teal);}
+  .btn.ghost:hover{background:var(--ink); color:var(--paper);}
+
+  section{padding:72px 0; border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  section h2{font-size:30px; margin-bottom:36px;}
+
+  /* ABOUT */
+  .about p{font-size:17px; color:var(--ink-soft); max-width:640px;}
+  .about p + p{margin-top:14px;}
+
+  /* EXPERIENCE */
+  .timeline{border-left:1px solid var(--line); padding-left:28px; display:flex; flex-direction:column; gap:36px;}
+  .titem{position:relative;}
+  .titem::before{
+    content:""; position:absolute; left:-33px; top:6px;
+    width:9px; height:9px; border-radius:50%; background:var(--gold); border:2px solid var(--paper); outline:1px solid var(--gold);
+  }
+  .titem .when{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--teal-dark); letter-spacing:.05em; text-transform:uppercase;}
+  .titem h3{font-size:19px; margin-top:6px;}
+  .titem .org{font-size:14px; color:var(--ink-soft); margin-top:2px;}
+  .titem p.desc{font-size:15px; color:var(--ink-soft); margin-top:8px; max-width:560px;}
+
+  /* SKILLS */
+  .skillgrid{display:grid; grid-template-columns:repeat(auto-fill, minmax(190px,1fr)); gap:2px; border:1px solid var(--line);}
+  .skill{background:var(--paper); padding:18px 20px; border:1px solid transparent;}
+  .skill .name{font-weight:600; font-size:15px;}
+  .skill .tag{font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--ink-soft); margin-top:4px; display:block;}
+
+  /* PROJECTS */
+  .projects{display:flex; flex-direction:column;}
+  .project{
+    display:grid; grid-template-columns:120px 1fr; gap:24px;
+    padding:26px 0; border-top:1px solid var(--line); align-items:start;
+  }
+  .project:last-child{border-bottom:1px solid var(--line);}
+  .project img{width:120px; height:120px; object-fit:cover; border-radius:3px; background:var(--paper-dim);}
+  .project h3{font-size:20px;}
+  .project .stack{font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--teal-dark); margin-top:8px; text-transform:uppercase; letter-spacing:.05em;}
+  .project p.pdesc{font-size:15px; color:var(--ink-soft); margin-top:8px; max-width:520px;}
+  .project .more{display:inline-block; margin-top:10px; font-size:13px; font-weight:600; color:var(--teal-dark); border-bottom:1px solid var(--teal-dark);}
+
+  /* CERTS */
+  .certlist{display:flex; flex-direction:column;}
+  .certrow{
+    display:flex; justify-content:space-between; align-items:baseline;
+    padding:16px 0; border-top:1px solid var(--line);
+  }
+  .certlist .certrow:last-child{border-bottom:1px solid var(--line);}
+  .certrow .cname{font-size:16px; font-weight:500;}
+  .certrow .cissuer{font-size:13px; color:var(--ink-soft); margin-top:2px;}
+  .certrow a{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--teal-dark); white-space:nowrap;}
+
+  /* CONTACT */
+  .contact{text-align:left;}
+  .contact h2{font-size:34px; max-width:520px;}
+  .contact p{color:var(--ink-soft); margin-top:14px; max-width:480px;}
+  .contact .links{display:flex; gap:16px; margin-top:32px; flex-wrap:wrap;}
+
+  footer{padding:28px 0; text-align:center; font-size:12px; color:var(--ink-soft);}
+
+  @media (max-width:640px){
+    .navlinks{display:none;}
+    .hero{padding:64px 0 48px;}
+    .project{grid-template-columns:1fr; }
+    .project img{width:100%; height:180px;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">Rana<span class="dot">.</span>AlMadhoun</div>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#certificates">Certificates</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Software Engineer <span class="ar">مطورة برمجيات</span></div>
+    <h1>Rana AlMadhoun</h1>
+    <div class="role">Mobile Developer — Flutter · Firebase · AI-integrated tools</div>
+    <p class="lede">I build and ship mobile apps and developer tools, with a focus on bilingual Arabic–English software for underserved communities.</p>
+    <div class="cta-row">
+      <a href="#projects" class="btn primary">View Projects</a>
+      <a href="#contact" class="btn ghost">Contact</a>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="eyebrow">About <span class="ar">نبذة</span></div>
+    <div class="about">
+      <p>Computer Systems Engineering graduate from Al-Azhar University – Gaza (2025, GPA 89.33%). Incoming MSc student in Computing Science at the University of Alberta, supervised by Prof. Osmar Zaiane.</p>
+      <p>I've shipped Flutter apps with Firebase backends, a Chrome extension with LLM integration, and bilingual Arabic-English tools used by real people. Currently in Amii's AI Career Accelerator Program (AICAP), building applied AI skills alongside my research track.</p>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="eyebrow">Experience <span class="ar">خبرة</span></div>
+    <div class="timeline">
+
+      <div class="titem">
+        <div class="when">Incoming</div>
+        <h3>MSc Computing Science</h3>
+        <div class="org">University of Alberta — Supervisor: Prof. Osmar Zaiane</div>
+      </div>
+
+      <div class="titem">
+        <div class="when">Current · Remote</div>
+        <h3>AI Career Accelerator Program (AICAP)</h3>
+        <div class="org">Amii</div>
+        <p class="desc">Applied AI training program run alongside graduate studies.</p>
+      </div>
+
+      <div class="titem">
+        <div class="when">Ongoing</div>
+        <h3>Flutter Developer Intern</h3>
+        <div class="org">Bio-Haiwi — with Dr. Mohammed Abhary</div>
+        <p class="desc">Building a bilingual Arabic-English biology terminology app, published on Google Play.</p>
+      </div>
+
+      <div class="titem">
+        <div class="when">2025</div>
+        <h3>BSc Computer Systems Engineering</h3>
+        <div class="org">Al-Azhar University — Gaza · GPA 89.33%</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="eyebrow">Skills <span class="ar">مهارات</span></div>
+    <div class="skillgrid">
+      <div class="skill"><div class="name">Flutter & Dart</div><span class="tag">Mobile</span></div>
+      <div class="skill"><div class="name">Firebase</div><span class="tag">Auth · Firestore</span></div>
+      <div class="skill"><div class="name">REST APIs</div><span class="tag">Integration</span></div>
+      <div class="skill"><div class="name">JavaScript</div><span class="tag">Chrome Extensions</span></div>
+      <div class="skill"><div class="name">LLM Integration</div><span class="tag">Groq API</span></div>
+      <div class="skill"><div class="name">Arabic NLP</div><span class="tag">Localization</span></div>
+      <div class="skill"><div class="name">System Design</div><span class="tag">Architecture</span></div>
+      <div class="skill"><div class="name">Git</div><span class="tag">Version Control</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="eyebrow">Projects <span class="ar">مشاريع</span></div>
+    <div class="projects">
+
+      <div class="project">
+        <img src="https://ranael-madhoun.github.io/Portfolio/assets/bio-haiwi app/Bio-Haiwi_mockup.png" alt="Bio-Haiwi app">
+        <div>
+          <h3>Bio-Haiwi</h3>
+          <p class="pdesc">Bilingual Arabic-English biology terminology app with categorized content and fast, offline-capable lookup.</p>
+          <div class="stack">Flutter · Firebase · Arabic Content Modeling</div>
+          <a class="more" href="https://ranael-madhoun.github.io/Portfolio/bio-haiwi-details.html">View details →</a>
+        </div>
+      </div>
+
+      <div class="project">
+        <img src="https://ranael-madhoun.github.io/Portfolio/xFile/xFile_mokup.png" alt="xFile app">
+        <div>
+          <h3>xFile</h3>
+          <p class="pdesc">File management app with secure sign-in and category-based navigation.</p>
+          <div class="stack">Flutter · Firebase Auth</div>
+          <a class="more" href="https://ranael-madhoun.github.io/Portfolio/xfile-details.html">View details →</a>
+        </div>
+      </div>
+
+      <div class="project">
+        <img src="https://ranael-madhoun.github.io/Portfolio/nasseq_loqo.png" alt="Nasseq AI logo">
+        <div>
+          <h3>Nasseq AI</h3>
+          <p class="pdesc">Chrome extension for Arabic/English writing — formatting, correction, and translation across web editors.</p>
+          <div class="stack">JavaScript · Manifest V3 · Groq LLM API</div>
+          <a class="more" href="https://ranael-madhoun.github.io/Portfolio/nasseq-details.html">View details →</a>
+        </div>
+      </div>
+
+      <div class="project">
+        <img src="https://ranael-madhoun.github.io/Portfolio/recipes_app_mokup.png" alt="Recipes app">
+        <div>
+          <h3>Recipes App</h3>
+          <p class="pdesc">Recipe browsing and management app focused on clarity and simple cooking steps.</p>
+          <div class="stack">Flutter</div>
+          <a class="more" href="https://ranael-madhoun.github.io/Portfolio/recipes-details.html">View details →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="certificates">
+  <div class="wrap">
+    <div class="eyebrow">Certificates <span class="ar">شهادات</span></div>
+    <div class="certlist">
+      <div class="certrow">
+        <div><div class="cname">Real-world Integration</div><div class="cissuer">Practical delivery of real project requirements</div></div>
+        <a href="certificates/Real-world int.png">View →</a>
+      </div>
+      <div class="certrow">
+        <div><div class="cname">Fundamentals</div><div class="cissuer">Software and implementation basics</div></div>
+        <a href="certificates/Fundmantls.png">View →</a>
+      </div>
+      <div class="certrow">
+        <div><div class="cname">Advanced</div><div class="cissuer">Advanced problem solving and engineering technique</div></div>
+        <a href="certificates/Advanced(2).png">View →</a>
+      </div>
+      <div class="certrow">
+        <div><div class="cname">GSG Certificate</div><div class="cissuer">Mobile development and cross-platform practice</div></div>
+        <a href="https://ranael-madhoun.github.io/Portfolio/certificates/GSG.pdf">View →</a>
+      </div>
+      <div class="certrow">
+        <div><div class="cname">Business Analytics</div><div class="cissuer">Coursera — Applied analytics and advanced Excel</div></div>
+        <a href="https://ranael-madhoun.github.io/Portfolio/certificates/Coursera ZF6KQXC5NGNE_2.pdf">View →</a>
+      </div>
+      <div class="certrow">
+        <div><div class="cname">System Design</div><div class="cissuer">Manara — Scalable architecture patterns</div></div>
+        <a href="https://ranael-madhoun.github.io/Portfolio/certificates/Coursera U6SZMH6KHE2F.pdf">View →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="eyebrow">Contact <span class="ar">تواصل</span></div>
+    <h2>Open to mobile development and applied AI roles.</h2>
+    <p>Reach out directly — email or LinkedIn both work.</p>
+    <div class="links">
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ranaalmadhoun002@gmail.com" class="btn primary">Email</a>
+      <a href="https://www.linkedin.com/in/rana-almadhoun-5a290824b/" class="btn ghost">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Rana AlMadhoun</footer>
+
+</body>
+</html>

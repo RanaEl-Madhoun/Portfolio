@@ -1,11 +1,15 @@
 :root {
-    --paper: #e8d9c5;
-    --paper-soft: #efe2d2;
-    --ink: #22191a;
-    --ink-soft: #544244;
-    --burgundy: #6d1f2f;
-    --gold: #785e3e;
-    --rule: #877274;
+    /* Engineering Dark Theme (lab / software engineer) */
+    --paper: #060713;
+    --paper-soft: #0b1026;
+    --ink: #f5f6ff;
+    --ink-soft: rgba(245, 246, 255, 0.68);
+    /* Primary accent for headlines/buttons */
+    --burgundy: #56a3ff;
+    /* Secondary accent (labels/chips) */
+    --gold: #7c66ff;
+    /* Borders/outlines */
+    --rule: rgba(124, 102, 255, 0.35);
 }
 
 * {
@@ -71,10 +75,10 @@ body::before {
     content: "";
     position: fixed;
     inset: 0;
-    background-image: radial-gradient(rgba(0, 0, 0, 0.03) 0.4px, transparent 0.4px);
+    background-image: radial-gradient(rgba(255, 255, 255, 0.06) 0.4px, transparent 0.4px);
     background-size: 3px 3px;
     pointer-events: none;
-    opacity: 0.35;
+    opacity: 0.16;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -517,7 +521,7 @@ body::before {
 
 .btn-primary:hover {
     background: color-mix(in srgb, var(--burgundy) 85%, black 15%);
-    box-shadow: 0 0 12px rgba(109, 31, 47, 0.24);
+    box-shadow: 0 0 12px color-mix(in srgb, var(--burgundy) 30%, transparent);
 }
 
 .btn-outline {
@@ -559,6 +563,75 @@ body::before {
     margin-bottom: 0.7rem;
 }
 
+.timeline {
+    border-left: 1px solid color-mix(in srgb, var(--rule) 70%, transparent);
+    padding-left: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    max-width: 720px;
+}
+
+body.rtl .timeline {
+    border-left: none;
+    border-right: 1px solid color-mix(in srgb, var(--rule) 70%, transparent);
+    padding-left: 0;
+    padding-right: 1.5rem;
+}
+
+.titem {
+    position: relative;
+}
+
+.titem::before {
+    content: "";
+    position: absolute;
+    left: -1.75rem;
+    top: 0.4rem;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--burgundy);
+    border: 2px solid var(--paper);
+    outline: 1px solid var(--burgundy);
+}
+
+body.rtl .titem::before {
+    left: auto;
+    right: -1.75rem;
+}
+
+.titem .when {
+    font-family: "Work Sans", sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.25rem;
+}
+
+.titem h3 {
+    color: var(--burgundy);
+    font-size: 1.15rem;
+    margin-bottom: 0.15rem;
+}
+
+.titem .org {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+}
+
+.titem .desc {
+    margin-top: 0.4rem;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    max-width: 560px;
+}
+
+.project-card .chips {
+    margin: 0 0 0.75rem;
+}
+
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -566,9 +639,9 @@ body::before {
 }
 
 .skill-card {
-    border: 1px solid color-mix(in srgb, var(--rule) 50%, transparent);
+    border: 1px solid color-mix(in srgb, var(--rule) 70%, transparent);
     padding: 1rem;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.18);
     transition: border-color 0.35s ease, background 0.35s ease,
         transform 0.35s ease, box-shadow 0.35s ease;
     cursor: pointer;
@@ -578,7 +651,7 @@ body::before {
 .skill-card.active,
 .skill-card:focus-visible {
     border-color: var(--burgundy);
-    background: rgba(109, 31, 47, 0.07);
+    background: rgba(86, 163, 255, 0.08);
     outline: none;
 }
 
@@ -670,9 +743,9 @@ body::before {
 }
 
 .project-card {
-    border: 1px solid color-mix(in srgb, var(--rule) 55%, transparent);
+    border: 1px solid color-mix(in srgb, var(--rule) 70%, transparent);
     padding: 0.7rem;
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.06);
     transition: transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
         box-shadow 0.42s ease, border-color 0.35s ease;
     overflow: hidden;
@@ -721,7 +794,7 @@ body::before {
     display: flex;
     flex-direction: column;
     border: 1px dashed color-mix(in srgb, var(--rule) 55%, transparent);
-    background: rgba(255, 255, 255, 0.28);
+    background: rgba(255, 255, 255, 0.06);
     padding: 0.85rem;
     position: relative;
     overflow: hidden;
@@ -783,7 +856,7 @@ body::before {
     inset: 0;
     display: flex;
     align-items: center;
-    background: rgba(109, 31, 47, 0.93);
+    background: color-mix(in srgb, var(--burgundy) 92%, transparent);
     color: #fff;
     padding: 0.6rem;
     font-size: 0.83rem;
